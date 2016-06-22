@@ -1,0 +1,97 @@
+<html>
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		.all> * {
+			width: 33.33%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100vh;
+			margin: 0;
+			border: 1px solid black;
+			padding: 0;
+			display: inline-block;
+		}
+
+		.all {
+			position: relative;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+		}
+
+		#json textarea {
+			height: 90%;
+			display: block;
+			width: 100%;
+		}
+
+		#json button {
+			height: 10%;
+			display: block;
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="all">
+		<iframe src="https://docs.google.com/spreadsheets/d/1l7sMxfD-qh4sbeu6Ax0z6v84YdahXDTG8hlPcE_vkEo/edit?rm=minimal" style="left: 0;"></iframe>
+		<div style="left: 33.33%;" id="json">
+			<textarea>
+{
+	header_title: 'my header title',
+	user: {
+		name: 'Matheus',
+		skills: [{
+			language: 'java',
+			level: '3'
+		}, {
+			language: 'ruby',
+			level: '4'
+		}, {
+			language: 'python',
+			level: '1'
+		}],
+		experiences: [{
+			cource_name: 'ciencia da computacao',
+			institution: 'unicamp'
+		}, {
+			cource_name: 'informática',
+			institution: 'cotuca'
+		}]
+	}
+}
+		</textarea>
+			<button>Do the magic!</button>
+		</div>
+		<iframe src="" id="result" style="left: 66.66%;"></iframe>
+	</div>
+	<script>
+		$('#json button').click(function() {
+			eval("window.json = " + $('#json textarea').val());
+			console.info(window.json);
+
+			$.ajax({
+				type : 'POST',
+				url : 'https://script.google.com/macros/s/AKfycbxF-s25Ceg0v1i9ZqRimDBDJi2gWMCfQSjKAc1cmlWx3_e1G7py/exec',
+				data : {
+					data : JSON.stringify(window.json)
+				}
+			}).done(function(id) {
+				$('#result').attr('src', 'https://docs.google.com/spreadsheets/d/'+id+'/edit?rm=minimal');
+			});
+		});
+	</script>
+</body>
+
+</html>
