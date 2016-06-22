@@ -38,12 +38,18 @@
 		#json button {
 			height: 10%;
 			display: block;
-			width: 100%;
+			width: 33.33%;
 			background-color: red;
 			color: white;
 			font-size: 20px;
 			text-transform: uppercase;
 			border: 0;
+			display: inline-block;
+			margin: 0;
+		}
+
+		#json button:not(:first-child) {
+			margin-left: -3px;
 		}
 	</style>
 </head>
@@ -77,12 +83,15 @@
 	}
 }
 		</textarea>
-			<button>Do the magic!</button>
+			<button id="generate">Do the magic!</button>
+			<button style="background-color: green;" id="xls">As xls</button>
+			<button style="background-color: blue;" id="pdf">as pdf</button>
 		</div>
 		<iframe src="" id="result" style="top: 66.66%;"></iframe>
 	</div>
 	<script>
-		$('#json button').click(function() {
+		window.id = 0;
+		$('#json #generate').click(function() {
 			eval("window.json = " + $('#json textarea').val());
 			console.info(window.json);
 
@@ -93,8 +102,23 @@
 					data : JSON.stringify(window.json)
 				}
 			}).done(function(id) {
+				window.id = id;
 				$('#result').attr('src', 'https://docs.google.com/spreadsheets/d/'+id+'/edit?rm=minimal');
 			});
+		});
+		$('#json #xls').click(function() {
+			if (!window.id) {
+				alert('Do the magic first!');
+				return;
+			}
+			window.open('https://docs.google.com/spreadsheets/d/'+window.id+'/export?format=xlsx', '_blank');
+		});
+		$('#json #pdf').click(function() {
+			if (!window.id) {
+				alert('Do the magic first!');
+				return;
+			}
+			window.open('https://docs.google.com/spreadsheets/d/'+window.id+'/export?format=pdf', '_blank');
 		});
 	</script>
 </body>
