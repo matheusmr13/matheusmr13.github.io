@@ -8,16 +8,16 @@
 			padding: 0;
 		}
 
-		.all> * {
-			width: 33.33%;
+		.all > * {
+			width: 100%;
 			position: absolute;
 			top: 0;
 			left: 0;
-			height: 100vh;
+			height: 33.33%;
 			margin: 0;
 			border: 1px solid black;
 			padding: 0;
-			display: inline-block;
+			display: block;
 		}
 
 		.all {
@@ -39,14 +39,19 @@
 			height: 10%;
 			display: block;
 			width: 100%;
+			background-color: red;
+			color: white;
+			font-size: 20px;
+			text-transform: uppercase;
+			border: 0;
 		}
 	</style>
 </head>
 
 <body>
 	<div class="all">
-		<iframe src="https://docs.google.com/spreadsheets/d/1l7sMxfD-qh4sbeu6Ax0z6v84YdahXDTG8hlPcE_vkEo/edit?rm=minimal" style="left: 0;"></iframe>
-		<div style="left: 33.33%;" id="json">
+		<iframe src="https://docs.google.com/spreadsheets/d/1l7sMxfD-qh4sbeu6Ax0z6v84YdahXDTG8hlPcE_vkEo/edit?rm=minimal" style="top: 0;"></iframe>
+		<div style="top: 33.33%;" id="json">
 			<textarea>
 {
 	header_title: 'my header title',
@@ -74,7 +79,7 @@
 		</textarea>
 			<button>Do the magic!</button>
 		</div>
-		<iframe src="" id="result" style="left: 66.66%;"></iframe>
+		<iframe src="" id="result" style="top: 66.66%;"></iframe>
 	</div>
 	<script>
 		$('#json button').click(function() {
