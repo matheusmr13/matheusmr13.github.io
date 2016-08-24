@@ -1,62 +1,31 @@
 <html>
 
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-		}
-
-		.all > * {
-			width: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 33.33%;
-			margin: 0;
-			border: 1px solid black;
-			padding: 0;
-			display: block;
-		}
-
-		.all {
-			position: relative;
-			top: 0;
-			left: 0;
-			width: 100vw;
-			height: 100vh;
-			overflow: hidden;
-		}
-
-		#json textarea {
-			height: 90%;
-			display: block;
-			width: 100%;
-		}
-
-		#json button {
-			height: 10%;
-			display: block;
-			width: 33.33%;
-			background-color: red;
-			color: white;
-			font-size: 20px;
-			text-transform: uppercase;
-			border: 0;
-			display: inline-block;
-			margin: 0;
-		}
-
-		#json button:not(:first-child) {
-			margin-left: -3px;
-		}
-	</style>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
 <body>
+	<img id="ItemPreview1" src="" />
+	<img id="ItemPreview2" src="" />
+	<img id="ItemPreview3" src="" />
+	<img id="ItemPreview4" src="" />
+	<img id="ItemPreview5" src="" />
+	<img id="ItemPreview6" src="" />
+
+	<nav>
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo" style="margin-left: 5px">QuickDrive</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="#home">Home</a></li>
+				<li><a href="#badges">Examples</a></li>
+				<li><a href="#collapsible">Documentation</a></li>
+			</ul>
+		</div>
+	</nav>
+
 	<div class="all">
-		<iframe src="https://docs.google.com/spreadsheets/d/1l7sMxfD-qh4sbeu6Ax0z6v84YdahXDTG8hlPcE_vkEo/edit?rm=minimal" style="top: 0;"></iframe>
+		<!--<iframe src="https://docs.google.com/spreadsheets/d/1l7sMxfD-qh4sbeu6Ax0z6v84YdahXDTG8hlPcE_vkEo/edit?rm=minimal" style="top: 0;"></iframe>-->
 		<div style="top: 33.33%;" id="json">
 			<textarea>
 {
@@ -89,38 +58,9 @@
 		</div>
 		<iframe src="" id="result" style="top: 66.66%;"></iframe>
 	</div>
-	<script>
-		window.id = 0;
-		$('#json #generate').click(function() {
-			eval("window.json = " + $('#json textarea').val());
-			console.info(window.json);
-
-			$.ajax({
-				type : 'POST',
-				url : 'https://script.google.com/macros/s/AKfycbxF-s25Ceg0v1i9ZqRimDBDJi2gWMCfQSjKAc1cmlWx3_e1G7py/exec',
-				data : {
-					data : JSON.stringify(window.json)
-				}
-			}).done(function(id) {
-				window.id = id;
-				$('#result').attr('src', 'https://docs.google.com/spreadsheets/d/'+id+'/edit?rm=minimal');
-			});
-		});
-		$('#json #xls').click(function() {
-			if (!window.id) {
-				alert('Do the magic first!');
-				return;
-			}
-			window.open('https://docs.google.com/spreadsheets/d/'+window.id+'/export?format=xlsx', '_blank');
-		});
-		$('#json #pdf').click(function() {
-			if (!window.id) {
-				alert('Do the magic first!');
-				return;
-			}
-			window.open('https://docs.google.com/spreadsheets/d/'+window.id+'/export?format=pdf', '_blank');
-		});
-	</script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>
