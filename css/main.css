@@ -1,2 +1,21 @@
 @import 'materialize.min.css';
 @import 'materialize-custom.css';
+
+.collection-item.avatar.selected .select-element{
+	display: none;
+}
+.collection-item.avatar.selected .unselect-element{
+	display: block;
+}
+.collection-item.avatar .unselect-element{
+	display: none;
+}
+
+ul.collection.selectable-collection li:hover {
+	background-color: rgba(80,142,245,0.15);
+}
+
+ul.collection.selectable-collection {
+	overflow: auto;
+	max-height: 300px;
+}

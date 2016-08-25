@@ -6,13 +6,6 @@
 </head>
 
 <body>
-	<img id="ItemPreview1" src="" />
-	<img id="ItemPreview2" src="" />
-	<img id="ItemPreview3" src="" />
-	<img id="ItemPreview4" src="" />
-	<img id="ItemPreview5" src="" />
-	<img id="ItemPreview6" src="" />
-
 	<nav>
 		<div class="nav-wrapper">
 			<a href="#" class="brand-logo" style="margin-left: 5px">QuickDrive</a>
@@ -24,42 +17,61 @@
 		</div>
 	</nav>
 
-	<div class="all">
-		<!--<iframe src="https://docs.google.com/spreadsheets/d/1l7sMxfD-qh4sbeu6Ax0z6v84YdahXDTG8hlPcE_vkEo/edit?rm=minimal" style="top: 0;"></iframe>-->
-		<div style="top: 33.33%;" id="json">
-			<textarea>
-{
-	header_title: 'my header title',
-	user: {
-		name: 'Matheus',
-		skills: [{
-			language: 'java',
-			level: '3'
-		}, {
-			language: 'ruby',
-			level: '4'
-		}, {
-			language: 'python',
-			level: '1'
-		}],
-		experiences: [{
-			cource_name: 'ciencia da computacao',
-			institution: 'unicamp'
-		}, {
-			cource_name: 'informática',
-			institution: 'cotuca'
-		}]
-	}
-}
-		</textarea>
-			<button id="generate">Do the magic!</button>
-			<button style="background-color: green;" id="xls">As xls</button>
-			<button style="background-color: blue;" id="pdf">as pdf</button>
+	<div class="row">
+		<div class="templates col s4">
+			<h5>Use a simple template</h5>
+			<ul class="collection selectable-collection">
+			</ul>
 		</div>
-		<iframe src="" id="result" style="top: 66.66%;"></iframe>
+		<div class="jsons col s4">
+			<h5>Populate with data</h5>
+			<ul class="collection selectable-collection">
+			</ul>
+		</div>
+		<div class="configs col s4">
+			<h5>Configure how you want</h5>
+			<ul class="collection selectable-collection">
+			</ul>
+		</div>
 	</div>
+	<div class="row card-template-visualizer" style="display:none">
+		<div class="col s10 m10" style="float: none; margin: auto;">
+			<div class="card horizontal">
+				<div class="card-image" style="overflow: hidden; max-height: 400px;" >
+					<img src="" style="max-width: 158%;">
+				</div>
+				<div class="card-stacked">
+					<div class="card-content">
+						<p>SpreadSheet</p>
+					</div>
+					<div class="card-action">
+						<a href="" class="see-on-drive" target="_blank">Visualize on Drive</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row card-json-visualizer" style="display:none">
+		<div class="col s10 m10" style="float: none; margin: auto;">
+			<div class="card horizontal">
+				<div class="card-image" style="overflow: hidden;" >
+					<textarea style="width: 782px; height: 400px"></textarea>
+				</div>
+				<div class="card-stacked">
+					<div class="card-content">
+						<p>SpreadSheet</p>
+					</div>
+					<div class="card-action">
+						<a href="" class="see-on-drive" target="_blank">Visualize on Drive</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--<iframe src="https://docs.google.com/spreadsheets/d/1l7sMxfD-qh4sbeu6Ax0z6v84YdahXDTG8hlPcE_vkEo/edit?rm=minimal" style="top: 0;"></iframe>-->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/dot.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
 

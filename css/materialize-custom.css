@@ -28,3 +28,12 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 table.striped>tbody>tr:nth-child(odd) {
 	background-color: rgba(100,100,100,0.1);
 }
+
+.collection .collection-item.avatar .secondary-content.secondary-icon {
+	right: 44px; 
+}
+
+.collection-item.avatar.selected,
+.collection-item.avatar.selected:hover {
+	background-color: rgba(80,142,245,0.27);
+}
